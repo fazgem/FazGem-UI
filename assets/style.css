@@ -1,0 +1,196 @@
+/* --- FAZGEM ENTERPRISE RESPONSIVE DESIGN --- */
+
+/* When the screen is 768px wide or smaller (Mobile/Small Tablets) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Make the dark mode background fit the small screen */
+    #b2b-modal {
+        width: 90% !important;
+        left: 5% !important;
+        top: 5% !important;
+        height: 90% !important;
+        padding: 20px !important;
+    }
+
+    /* 2. Stack the Left and Right columns on top of each other */
+    #b2b-flex-container {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+}
+
+/* =========================================
+   THE $100M ENTERPRISE FACELIFT (HOME PAGE)
+   ========================================= */
+
+/* The Main Container Background */
+#home-container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    color: #f8fafc !important;
+    border-radius: 12px;
+    padding: 50px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The Hero Title */
+#home-title {
+    color: #38bdf8 !important; /* Cyber Blue */
+    font-weight: 800 !important;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+}
+
+/* The Subtitle */
+#home-sub {
+    color: #cbd5e1 !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 30px !important;
+}
+
+/* The 'How It Works' Steps */
+#home-steps > div > p {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 15px 20px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #38bdf8 !important;
+    color: #e2e8f0 !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+#home-steps > div > p:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* The Glowing Launch Button */
+#btn-launch-rose {
+    background: #38bdf8 !important;
+    color: #0f172a !important;
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    padding: 15px 40px !important;
+    border-radius: 30px !important;
+    border: none !important;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+    transition: all 0.3s ease !important;
+    margin-top: 20px !important;
+}
+
+#btn-launch-rose:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.7) !important;
+}
+
+/* =========================================
+   THE $100M DASHBOARD FACELIFT
+   ========================================= */
+
+/* 1. Sleek Chat Window & Custom Scrollbar */
+#chat-window {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01) !important;
+    padding: 25px !important;
+}
+
+/* The invisible, modern scrollbar for the chat */
+#chat-window::-webkit-scrollbar {
+    width: 6px;
+}
+#chat-window::-webkit-scrollbar-track {
+    background: transparent;
+}
+#chat-window::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+}
+#chat-window::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+}
+
+/* 2. The Modern Chat Input Field */
+#user-input {
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 30px !important; /* Perfect Pill Shape */
+    padding: 15px 25px !important;
+    font-size: 1.05rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+}
+
+#user-input:focus {
+    border-color: #38bdf8 !important; /* Cyber Blue glow on focus */
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* 3. The Send Button */
+#send-button {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important; /* Deep Navy */
+    color: #38bdf8 !important; /* Cyber Blue Icon */
+    border-radius: 50% !important;
+    width: 55px !important;
+    height: 55px !important;
+    border: none !important;
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.3) !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#send-button:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 15px 20px -3px rgba(15, 23, 42, 0.4) !important;
+}
+
+/* 4. Upgrade the Vault Green Box */
+#upload-status > div {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+    border-left: 6px solid #22c55e !important; /* Strong structural border */
+    border-radius: 12px !important;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important;
+}
+
+/* ==================================================================== */
+/* 🛑 FAZGEM NEON BLUE OVERRIDES & NUCLEAR GHOST KILLER 🛑              */
+/* ==================================================================== */
+
+/* 1. Vaporize the outer tooltip container */
+.rc-slider-tooltip { 
+    opacity: 0 !important; 
+    pointer-events: none !important; 
+    visibility: hidden !important; 
+    display: none !important; 
+}
+
+/* 2. Vaporize the inner tooltip box (The culprit behind the white squares) */
+.rc-slider-tooltip-inner {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Vaporize the tooltip arrow */
+.rc-slider-tooltip-arrow {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* 4. Enforce the FazGem Neon Blue Slider Aesthetic */
+.rc-slider-rail { background-color: #333333 !important; }
+.rc-slider-track { background-color: #00d2ff !important; }
+.rc-slider-handle { 
+    border: 2px solid #00d2ff !important; 
+    background-color: #050505 !important; 
+    box-shadow: 0 0 5px rgba(0, 210, 255, 0.5) !important;
+}
+.rc-slider-mark-text { color: #555555 !important; }
+.rc-slider-mark-text-active { color: #00d2ff !important; }

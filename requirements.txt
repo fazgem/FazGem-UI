@@ -1,0 +1,12 @@
+streamlit
+streamlit-javascript
+requests
+flask
+authlib
+dash
+dash-bootstrap-components
+pandas
+plotly
+google-cloud-firestore
+google-genai
+werkzeug

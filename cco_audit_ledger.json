@@ -1,0 +1,83 @@
+[
+    {
+        "timestamp": "2026-08-04 19:59:03",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Client has other funds in other accounts.",
+        "status": "OVERRIDE_ESCALATION"
+    },
+    {
+        "timestamp": "2026-08-05 19:37:15",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Disagree with assessment - I know this client.",
+        "status": "OVERRIDE_ESCALATION"
+    },
+    {
+        "timestamp": "2026-08-06 14:51:59",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Disagree further information needed - I know this client and  it's the client  only NQSMI in the past 12 months.",
+        "status": "OVERRIDE_ESCALATION"
+    },
+    {
+        "timestamp": "2026-08-06 20:33:39",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Disagree with assessment - Know clients and  knoledgeable with NQSMI.",
+        "status": "OVERRIDE_ESCALATION"
+    },
+    {
+        "timestamp": "2026-08-06 23:00:12",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Know Client",
+        "status": "REJECTED_MANDATORY_REMEDIATION",
+        "cco_remediation_directive": "Follow Rose Recommendation",
+        "remediation_timestamp_utc": "2026-08-06 23:01:30"
+    },
+    {
+        "timestamp": "2026-08-07 18:13:51",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Disagree - I know the client and the is an investor - some the information in this analysis . Also the client, FSRA Guidance - does OSC require  compliance with FSRA Guidance?",
+        "status": "REJECTED_MANDATORY_REMEDIATION",
+        "cco_remediation_directive": "You need to  address  Rose's  request and and provide d more to  Rose - resubmit.",
+        "remediation_timestamp_utc": "2026-08-07 18:16:12"
+    },
+    {
+        "timestamp": "2026-08-08 12:21:31",
+        "filename": "Syndicated Mortgage Investment SMI.txt",
+        "client_tier": "Retail Investor / Borrower",
+        "client_net_worth": 180000.0,
+        "client_horizon": 5,
+        "audit_protocol": "FAZGEM_RETAIL_SUITABILITY_GUARDRAIL",
+        "advisor_id": "ADV-042 (Ottawa Flagship)",
+        "override_rationale": "Disagree with analysis",
+        "status": "OVERRIDE_ESCALATION"
+    }
+]
