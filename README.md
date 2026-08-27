@@ -34,3 +34,15 @@ Follow these step-by-step instructions to set up and run FazGem locally or deplo
 ```bash
 git clone [https://github.com/fazgem/FazGem-UI.git](https://github.com/fazgem/FazGem-UI.git)
 cd FazGem-UI
+
+🛡️ Reproducible Testing & Verification
+PII Sanitization Test: Upload a test client text file containing synthetic PII (SIN/SSN, names, addresses). Verify in terminal logs that wasm_sanitizer.py intercepts and scrubs the memory stream prior to backend dispatch.
+
+Pre-Trade Gatekeeping Test: Trigger a trade order exceeding $250,000 or breaching daily cumulative leverage caps. Verify that triage.py emits an immediate sub-50ms hard BLOCK verdict.
+
+Audit Verification: Access the CCO Vault dashboard to confirm the event has been appended to the KMS-encrypted audit ledger.
+
+⚖️ License & Intellectual Property Notice
+© 2026 FazGem Inc. All Rights Reserved. Confidential & Proprietary.
+
+Architected and authored by Clifford Amicar, Founder and Lead Architect of FazGem Inc. Conceptualized with the assistance of Google Cloud AI Ecosystem & Gemini 3.7 Flash as an AI Design Co-Pilot.
