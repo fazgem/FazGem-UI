@@ -1,14 +1,18 @@
-FROM python:3.11-slim
+# Use the official, lightweight Python 3.12 image
+FROM python:3.12-slim
 
+# Set the working directory
 WORKDIR /app
 
-COPY . /app
-
+# Copy the requirements file and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV PORT=8080
-ENV PYTHONUNBUFFERED=1
+# Copy the rest of the frontend code
+COPY . .
 
+# Expose port 8080 for Cloud Run
 EXPOSE 8080
 
-CMD ["sh", "-c", "streamlit run triage.py --server.port=${PORT} --server.address=0.0.0.0 --server.headless=true"]
+# Command to run Streamlit on port 8080
+CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
