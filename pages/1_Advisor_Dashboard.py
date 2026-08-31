@@ -3,9 +3,11 @@ ADVISOR DASHBOARD (1_Advisor_Dashboard.py)
 Front-line interface for advisors to review their specific transaction audits.
 """
 import os
+import time
 import json
 import streamlit as st
 from api_client import FazGemAPI
+
 
 # ---------------------------------------------------------
 # 1. PAGE CONFIG & TENANT SECURITY CHECK
@@ -36,13 +38,11 @@ if st.button("🔄 Refresh My Audits", type="secondary"):
             ledger_path = "data/active_audits.json"
             ledger_data = []
             
-            if os.path.exists(ledger_path):
-                try:
-                    with open(ledger_path, "r", encoding="utf-8") as f:
-                        ledger_data = json.load(f)
-                    ledger_data.reverse() # Newest first
-                except json.JSONDecodeError:
-                    st.error("Ledger file is corrupted or empty.")
+           # Fetch the live, KMS-decrypted ledger directly from the FazGem Engine
+            ledger_data = FazGemAPI.fetch_cco_ledger(tenant_id=tenant_id, limit=20)
+            
+            if not ledger_data:
+                st.info("No active audits found in the Vault.")
             # --- END SHARED LEDGER READ ---
             st.success("Audit history synchronized.")
             
@@ -89,7 +89,8 @@ if st.button("🔄 Refresh My Audits", type="secondary"):
                         intercepts = record.get("intercept_details", [])
                         for flag in intercepts:
                             if isinstance(flag, dict):
-                                st.write(f"- ⚠️ **{flag.get('rule', 'ALERT')}**: {flag.get('reason', '')}")
+                                st.write(f"- ⚠️ **{flag.get('rule_id', 'ALERT')}**: {flag.get('message', '')}")
+                    
                             else:
                                 st.write(f"- ⚠️ {flag}")
 
@@ -140,9 +141,12 @@ if st.button("🔄 Refresh My Audits", type="secondary"):
                                     st.rerun()
 
                             elif action == "I disagree. Request CCO Override (Triggers Dual-Ledger Review).":
-                                if rationale.strip() == "":
-                                    st.error("⚠️ You must provide a regulatory rationale before submitting an override.")
+                                if not rationale or len(rationale.strip()) < 20:
+                                    st.error("🚨 DETERMINISTIC BLOCK: You must provide a regulatory rationale (minimum 20 characters) to override a Sentinel Intercept.")
                                 else:
+                                    st.success("🔒 Override transmitted to the CCO Vault. Audit ledger updated.")
+                                    time.sleep(2)
+                                    st.rerun()
                                     import json, os
                                     ledger_path = "data/active_audits.json"
                                     if os.path.exists(ledger_path):

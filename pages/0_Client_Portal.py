@@ -4,6 +4,7 @@ Implements Edge-Compute for local PII scrubbing before payload transmission.
 """
 
 import os
+import time
 import json
 import uuid
 from datetime import datetime
@@ -152,75 +153,15 @@ if st.button("Transmit to FazGem Core", type="primary", use_container_width=True
                 }
             }
             
-            response = FazGemAPI.evaluate_document(payload, tenant_id=st.session_state.get("tenant_id"))
+        response = FazGemAPI.evaluate_document(payload, tenant_id=st.session_state.get("tenant_id"))
+        
+        if response and response.get("status") == "success":
+            st.success("✅ Fiduciary Audit Complete: Payload secured and routed to core engine.")
             
-            if response and response.get("status") == "success":
-                st.success("✅ Fiduciary Audit Complete: Statutory compliance verified against the Iron Cache.")
-                
-                # --- SHARED LEDGER WRITE BLOCK ---
-                extracted_profile = response.get("extracted_profile", {})
-                sentinel_verdict = response.get("sentinel_verdict", {})
-                
-                doc_id = f"AUDIT_{str(uuid.uuid4())[:6].upper()}"
-                
-                audit_record = {
-                    "doc_id": doc_id,
-                    "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
-                    "verdict_status": sentinel_verdict.get("verdict", "UNKNOWN"),
-                    "financial_metrics": {
-                        "net_worth": client_net_worth,
-                        "proposed_amount": extracted_profile.get("proposed_amount", 0.0)
-                    },
-                    "intercept_details": sentinel_verdict.get("intercept_details", []),
-                    "contextual_flags": extracted_profile.get("contextual_flags", []),
-                    "document_summary": extracted_profile.get("document_summary", "No summary extracted."),
-                    "client_type": extracted_profile.get("client_type", "RETAIL_CONSUMER"),
-                    "jurisdiction": extracted_profile.get("jurisdiction", jurisdiction),
-                    "sector": extracted_profile.get("sector", sector)
-                }
-
-                # Persist record to shared local vault data
-                ledger_path = "data/active_audits.json"
-                os.makedirs("data", exist_ok=True)
-                
-                ledger = []
-                if os.path.exists(ledger_path):
-                    try:
-                        with open(ledger_path, "r", encoding="utf-8") as f:
-                            ledger = json.load(f)
-                    except json.JSONDecodeError:
-                        ledger = []
-                        
-                ledger.append(audit_record)
-                with open(ledger_path, "w", encoding="utf-8") as f:
-                    json.dump(ledger, f, indent=4)
-                    
-                st.caption(f"🔒 Record `{doc_id}` appended to shared ledger (`data/active_audits.json`).")
-                # --- END SHARED LEDGER WRITE BLOCK ---
-                # --- PROFESSIONAL FIDUCIARY REPORT RENDERING ---
-                st.divider()
-                st.subheader("📑 Official Fiduciary Audit Report")
-
-                # Format as a clean executive summary
-                st.info(f"**Qualitative Fiduciary Summary:**\n\n{extracted_profile.get('document_summary', 'No summary available.')}")
-
-                col_rep1, col_rep2, col_rep3 = st.columns(3)
-                with col_rep1:
-                    verdict_status = sentinel_verdict.get("verdict", "UNKNOWN")
-                    st.metric("Statutory Verdict", "✅ PASS" if verdict_status == "PASS" else "🛑 INTERCEPT")
-                    st.markdown(f"**Jurisdiction:** {extracted_profile.get('jurisdiction', 'N/A')}")
-                    
-                with col_rep2:
-                    st.metric("Proposed Capital", f"${extracted_profile.get('proposed_amount', 0):,.2f}")
-                    st.markdown(f"**Client Classification:** {extracted_profile.get('client_type', 'N/A')}")
-                    
-                with col_rep3:
-                    st.metric("Target Sector", extracted_profile.get('sector', 'N/A').replace("_", " ").title())
-                    st.markdown(f"**Net Worth:** ${client_net_worth:,.2f}")
-
-                # Hide the raw telemetry for developers/judges
-                with st.expander("⚙️ View System Telemetry & Raw JSON Payload (Dev Ops)", expanded=False):
-                    st.json(response)
-    
-            else:
-                st.error("❌ Core Engine Evaluation Failed. Check backend terminal logs for trace.")
+            # --- SEAMLESS HACKATHON REDIRECT ---
+            st.info("🔄 Redirecting to Advisor Operations Dashboard...")
+            time.sleep(1.5) 
+            st.switch_page("pages/1_Advisor_Dashboard.py")
+            
+        else:
+            st.error("❌ Core Engine Evaluation Failed. Check backend terminal logs for trace.")
