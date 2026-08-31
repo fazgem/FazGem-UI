@@ -11,7 +11,7 @@ import streamlit as st
 
 # Dynamic backend URL resolution (Defaults to local backend port 8080 inside Docker/Local)
 # Change Line 13 from "http://localhost:8080" to "http://fazgem-core-backend:8080"
-BACKEND_URL = os.environ.get("BACKEND_URL", "http://fazgem_engine:8080").rstrip("/")
+BACKEND_URL = os.environ.get("BACKEND_URL", "https://fazgem-core-backend-454322585999.us-central1.run.app").rstrip("/")
 
 
 class FazGemAPI:
