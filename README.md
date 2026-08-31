@@ -1,3 +1,10 @@
+
+🔒 Enterprise Architecture & Intellectual Property Notice
+
+The code provided in this repository represents the Zero-Trust Client Intake and UI rendering edge of the FazGem platform.
+
+To protect our proprietary deterministic math boundaries (Ogu Feray Engine) and advanced fiduciary prompt engineering (Rose NLP), the core backend is securely containerized as a compiled "Black Box" image on Google Cloud Container Registry. The live deployment at fazgem.com is fully functional for judge evaluation, and local testing is supported via the provided docker-compose.yml.
+
 # 💎 FazGem: Enterprise Pre-Trade AI Interceptor
 
 **FazGem** is an enterprise-grade AI RegTech platform engineered for wealth management and capital markets. It introduces a dual-engine inline interceptor that combines qualitative fiduciary intent reasoning with sub-50ms deterministic statutory math to prevent non-compliant trades *a priori*.
