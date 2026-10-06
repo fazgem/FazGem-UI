@@ -11,8 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the frontend code
 COPY . .
 
-# Expose port 8080 for Cloud Run
+# Expose port 8080 for Google Cloud routing
 EXPOSE 8080
 
-# Command to run Streamlit on port 8080
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Command to run Streamlit on port 8080 and handle proxy headers
+CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
